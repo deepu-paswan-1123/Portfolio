@@ -13,8 +13,7 @@ const Hero = () => {
         <div className="hero-content">
           <h2>Building Digital Experience That inspire</h2>
           <p>
-            Professional Front End Developer | Transform Ideas into Seamless and
-            Visually Stunning Web Solutions.
+            Professional MERN Stack Developer | Build Scalable, Efficient, and Dynamic Web Applications.
           </p>
         </div>
 

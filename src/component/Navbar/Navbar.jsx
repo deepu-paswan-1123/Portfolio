@@ -1,147 +1,5 @@
-// import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-// import "./Navbar.css";
-// import { TiThMenu } from "react-icons/ti";
-// import { RxCross2 } from "react-icons/rx";
-// import MobileNav from "../MobileNav/MobileNav";
-// import SkillsCard from "../Skills/SkillsCard/SkillsCard";
-
-// const Navbar = () => {
-
-//     const [openMenu,setOpenMenu]=useState(false);
-
-//     const toggleMenu=()=>{
-//         setOpenMenu(!openMenu);
-//     }
-
-//   return (
-//     <>
-//       <MobileNav isOpen={openMenu} toggleMenu={toggleMenu}/>
-//       <nav className="nav-wrapper">
-//         <div className="Nav-Content">
-//           <h2 className="navbarlogo">Deepu Paswan</h2>
-
-//           <ul>
-//             <li>
-//               <a href="" className="menu-item">
-//                 Home
-//               </a>
-//             </li>
-//             <li>
-//               <a href="" className="menu-item">
-//                 Skills
-//               </a>
-//             </li>
-//             <li>
-//               <a href="" className="menu-item">
-//                 Work Experience 
-//               </a>
-//             </li>
-//             <li>
-//               <a href="" className="menu-item">
-//                 Contact me
-//               </a>
-//             </li>
-
-//             <button className="contact-btn" onClick={() => {}}>
-//               Hire Me
-//             </button>
-//           </ul>
-//           <button className="menu-btn" onClick={toggleMenu}>
-//             <span
-//               className={"material-symbols-outlined"}
-//               style={{ fontSize: "1.8rem" }}
-//             >
-//                 {openMenu ? <RxCross2 /> : <TiThMenu />}
-              
-//             </span>
-//           </button>
-//         </div>
-//       </nav>
-//     </>
-//   );
-// };
-
-// export default Navbar;
-
-
-
-
-
-
-
-
-
-
-// // import React, { useState } from "react";
-// // import { Link } from "react-router-dom";
-// // import "./Navbar.css";
-// // import { TiThMenu } from "react-icons/ti";
-// // import { RxCross2 } from "react-icons/rx";
-// // import MobileNav from "../MobileNav/MobileNav";
-
-// // const Navbar = () => {
-// //   const [openMenu, setOpenMenu] = useState(false);
-
-// //   const toggleMenu = () => {
-// //     setOpenMenu(!openMenu);
-// //   };
-
-// //   return (
-// //     <>
-// //       <MobileNav isOpen={openMenu} toggleMenu={toggleMenu} />
-// //       <nav className="nav-wrapper">
-// //         <div className="Nav-Content">
-// //           <h2 className="navbarlogo">Deepu Paswan</h2>
-
-// //           <ul>
-// //             <li>
-// //               <Link to="/" className="menu-item">
-// //                 Home
-// //               </Link>
-// //             </li>
-// //             <li>
-// //               <Link to="/skills" className="menu-item">
-// //                 Skills
-// //               </Link>
-// //             </li>
-// //             <li>
-// //               <Link to="/work-experience" className="menu-item">
-// //                 Work Experience
-// //               </Link>
-// //             </li>
-// //             <li>
-// //               <Link to="/contact-me" className="menu-item">
-// //                 Contact Me
-// //               </Link>
-// //             </li>
-// //             <button className="contact-btn" onClick={() => {}}>
-// //               Hire Me
-// //             </button>
-// //           </ul>
-// //           <button className="menu-btn" onClick={toggleMenu}>
-// //             <span style={{ fontSize: "1.8rem" }}>
-// //               {openMenu ? <RxCross2 /> : <TiThMenu />}
-// //             </span>
-// //           </button>
-// //         </div>
-// //       </nav>
-// //     </>
-// //   );
-// // };
-
-// // export default Navbar;
-
-
-
-
-
-
-
-
-
-
 import React, { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import { TiThMenu } from "react-icons/ti";
 import { RxCross2 } from "react-icons/rx";
@@ -149,12 +7,28 @@ import MobileNav from "../MobileNav/MobileNav";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation(); // Get the current route
 
   const toggleMenu = () => {
     setOpenMenu(!openMenu);
   };
 
   const handleScroll = (sectionId) => {
+    if (location.pathname !== "/") {
+      // Navigate to the homepage if not already there
+      navigate("/");
+      // Delay the scroll action to allow the DOM to render
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 100);
+    } else {
+      // Directly scroll if already on the homepage
+      scrollToSection(sectionId);
+    }
+  };
+
+  const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -184,13 +58,18 @@ const Navbar = () => {
               </a>
             </li>
             <li>
+              <a href="#My Projects" className="menu-item" onClick={() => handleScroll("My Projects")}>
+                My Projects
+              </a>
+            </li>
+            <li>
               <a href="#contact-me" className="menu-item" onClick={() => handleScroll("contact-me")}>
                 Contact Me
               </a>
             </li>
-            <button className="contact-btn" onClick={() => {}}>
-              Hire Me
-            </button>
+            <Link to="/Resume" style={{textDecoration:'none'}}>
+              <button className="contact-btn">Dowload CV</button>
+            </Link>
           </ul>
           <button className="menu-btn" onClick={toggleMenu}>
             <span style={{ fontSize: "1.8rem" }}>
@@ -204,4 +83,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

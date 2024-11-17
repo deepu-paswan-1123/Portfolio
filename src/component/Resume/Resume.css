@@ -1,0 +1,48 @@
+/* Container styling */
+.Cv-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove any margin from the body */
+    overflow: hidden; /* Prevent body scroll */
+}
+
+/* PDF container styling */
+.resume-pdf-container {
+    width: 90%;
+    max-width: 800px;
+    height: 100vh; /* Full viewport height */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for style */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Completely hide scrollbars within the container */
+    background-color: #fff; /* White background */
+    display: flex; /* Align content within */
+}
+
+/* Styling the iframe (PDF viewer) */
+.pdf-viewer {
+    width: 100%;
+    height: 100%; /* Ensure the iframe fully fills the container */
+    border: none; /* Remove border */
+    overflow: hidden !important; /* Ensure no internal scrollbars */
+    scrollbar-width: none; /* Firefox: Hide scrollbar */
+    -ms-overflow-style: none; /* IE and Edge: Hide scrollbar */
+}
+
+/* Hide scrollbars for WebKit browsers */
+.pdf-viewer::-webkit-scrollbar {
+    width: 0; /* Remove vertical scrollbar width */
+    display: none; /* Completely hide scrollbar */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .resume-pdf-container {
+        height: 80vh; /* Adjust height for smaller screens */
+    }
+    .pdf-viewer {
+        height: 100%; /* Ensure the iframe height adjusts accordingly */
+    }
+}
