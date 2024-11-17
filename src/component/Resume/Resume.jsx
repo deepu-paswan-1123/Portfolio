@@ -7,7 +7,7 @@ const Resume = () => {
 
             <div className="resume-pdf-container">
                 <iframe
-                    src="/public/resume.pdf.pdf" // Adjust the path if needed
+                    src="/resume.pdf.pdf" // Adjust the path if needed
                     width="100%"
                     title="Deepu Paswan Resume"
                 ></iframe>
