@@ -21,7 +21,10 @@
     border-radius: 0.5rem;
 }
 
-.contact-details-card p{
+.contact-details-card a{
     font-size: 0.9rem;
     font-weight: 400;
+    color: white;
+    text-decoration:none;
 }
+
