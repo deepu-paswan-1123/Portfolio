@@ -92,7 +92,7 @@ export const My_Projects=[
             "Key Features: Includes user authentication, dynamic conversations, and real-time status updates (online/offline).",
             "Feature-Rich Interface: Offers essential functionalities like Images uploads, and conversation history."
         ],
-        links:"https://dpschoolmanagement87.netlify.app",
+        links:"https://github.com/deepu-paswan-1123/dbchatapp",
     },
     {
         title:"Forum Website",
@@ -104,7 +104,7 @@ export const My_Projects=[
             "Categorized Topics: Organized into categories and tags for easy navigation and efficient topic discovery.",
             "Moderation Tools: Equipped with admin and moderator controls to ensure a safe and respectful community environment.",
         ],
-        links:"https://dpschoolmanagement87.netlify.app",
+        links:"https://github.com/deepu-paswan-1123/forum",
     },
     {
         title:"Admin Pannel",
@@ -116,7 +116,7 @@ export const My_Projects=[
             "Categorical Data Management: Organized data handling with categorized sections for streamlined operations.",
             "User-Friendly Interface: Simple and intuitive design for seamless navigation and management.",
         ],
-        links:"https://dpschoolmanagement87.netlify.app",
+        links:"https://github.com/deepu-paswan-1123/Adimin-Pannel",
     },
     {
         title:"School Management UI",
