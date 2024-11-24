@@ -1,76 +1,67 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './ContactForm.css';
 
-const ContactForm = () => {
-    const [formData, setFormData] = useState({
-        firstname: '',
-        lastname: '',
-        email: '',
-        message: ''
-    });
+export const ContactForm = () => {
+  const form = useRef();
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-    };
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-    const handleFormSubmit = (event) => {
-        event.preventDefault();
-        
-        // Reset form fields
-        setFormData({
-            firstname: '',
-            lastname: '',
-            email: '',
-            message: ''
-        });
-    };
+    emailjs
+      .sendForm('service_ytj9t03', 'template_uvpcfmp', form.current, {
+        publicKey: 'uiRj6QY8G3i0SloZD',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          form.current.reset();
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
 
-    return (
-        <div className='contact-form-content'>
-            <form target="_blank" action='https://formsubmit.co/vijaydeepu737@gmail.com' method='POST' onSubmit={handleFormSubmit}>
-                <div className="name-container">
+  return (
+            <div className='contact-form-content'>
+                <form ref={form} onSubmit={sendEmail}>
+    
+                    <div className="name-container">
+                        <input 
+                            type="text" 
+                            name='from_name' 
+                            placeholder='First Name' 
+                            required 
+                        
+                        />
+                        <input 
+                            type="text" 
+                            name='first_name2' 
+                            placeholder='from_name' 
+                            required 
+                            
+                        />
+                    </div>
                     <input 
-                        type="text" 
-                        name='firstname' 
-                        placeholder='First Name' 
+                        type="email" 
+                        name='from_email' 
+                        placeholder='Email' 
                         required 
-                        value={formData.firstname} 
-                        onChange={handleInputChange} 
+            
                     />
-                    <input 
+                    <textarea 
                         type="text" 
-                        name='lastname' 
-                        placeholder='Last Name' 
-                        required 
-                        value={formData.lastname} 
-                        onChange={handleInputChange} 
+                        name="message" 
+                        rows={3} 
+                        placeholder='Message'
                     />
-                </div>
-                <input 
-                    type="email" 
-                    name='email' 
-                    placeholder='Email' 
-                    required 
-                    value={formData.email} 
-                    onChange={handleInputChange} 
-                />
-                <textarea 
-                    type="text" 
-                    name="message" 
-                    rows={3} 
-                    placeholder='Message' 
-                    required 
-                    value={formData.message} 
-                    onChange={handleInputChange} 
-                />
-                <button type='submit'>Send</button>
-            </form>
-        </div>
-    );
+                    <button type='submit'>Send</button>
+                </form>
+            </div>
+        );
+
 };
 
 export default ContactForm;
+
