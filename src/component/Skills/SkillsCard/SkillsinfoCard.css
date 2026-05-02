@@ -1,56 +1,65 @@
-.skills-info-card{
-    min-height: 23rem;
+.skills-info-card {
+    min-height: 25rem;
     border-radius: 0.65rem;
     border: 1px solid #6751b9;
     background: rgba(22, 17, 47, 0.398);
     backdrop-filter: blur(1rem);
-}
-
-.skills-info-card h6{
-    font-size: 1.2rem;
-    font-weight: 500;
-    padding: 0.8rem 2rem;
-    background: linear-gradient(180deg,#ac96ff 0% ,#7c5fe6 100%);
-    background-clip:text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border-bottom: 1.5px solid #6751b9;
-}
-
-.skills-info-content{
     padding: 2rem;
 }
 
-.skill_info{
+.skills-info-card h6 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(90deg, var(--bg-dark-accent), transparent);
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.skills-info-content {
+    padding: 0 1.5rem 1.5rem;
+}
+
+.skill_info {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 0.5rem;
 }
 
-.skill_info p{
+.skill_info p {
     font-size: 1rem;
     font-weight: 500;
+    color: var(--text-main);
 }
 
-.skill_info .percentage{
-    color: #dd8cfa;
+.skill_info .percentage {
+    color: var(--primary-color);
 }
 
-.skill-progress-bg{
+.skill-progress-bg {
     width: 100%;
     height: 0.5rem;
-    background: #382e68;
+    background: rgba(169, 147, 254, 0.1);
     border-radius: 0.5rem;
-    margin: 1rem 0;
+    margin-bottom: 1.5rem;
     overflow: hidden;
 }
 
-.skill-progress{
-    width: 0%;
-    height: 0.5rem;
-    background: linear-gradient(90deg ,#aa94fe -50%,#7d60e6 50%);
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     border-radius: 0.5rem;
+    width: 0%;
     transition: all .3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .skills-info-card {
+        padding: 1rem;
+        min-height: auto;
+    }
 }
 
 @media (max-width:1025px){

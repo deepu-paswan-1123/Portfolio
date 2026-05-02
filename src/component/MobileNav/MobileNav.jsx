@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { FiDownload } from "react-icons/fi";
 import './MobileNav.css';
+
 
 const MobileNav = ({ isOpen, toggleMenu, handleScroll }) => {
     const navigate = useNavigate();
@@ -74,7 +76,9 @@ const MobileNav = ({ isOpen, toggleMenu, handleScroll }) => {
                         </li>
                         <li>
                         <Link to="/Resume" style={{textDecoration:'none'}}>
-                            <button className="contact-btn">Dowload CV</button>
+                            <button className="contact-btn">
+                                <FiDownload style={{marginRight: '8px'}} /> Download CV
+                            </button>
                         </Link>
                         </li>
                     </ul>

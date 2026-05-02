@@ -1,61 +1,65 @@
-.work-experience-card{
-    background: #130f2a;
-    border-radius: 0.65rem;
-    border: 1.5px solid #6751b9;
-    padding: 1.5em;
+.work-experience-card {
+    padding: 2rem;
     margin: 0 1rem;
-   
-}
-
-.work-experience-card h6{
-    font-size: 1.05rem;
-    font-weight: 500;
-    margin-bottom: 0.7rem;
-}
-
-.work-duration{
-    display: inline-block;
-    font-size:0.7rem;
-    font-weight: 400;
-    background: rgba(103,81,185,0.5);
-    border-radius: 0.3rem;
-    padding: 0.4rem 0.6rem;
-    margin-bottom: 1.3rem;
-}
-
-.work-experience-card ul li{
-    list-style: none;
-    font-size: 0.8rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
+    min-height: 25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     position: relative;
+    overflow: hidden;
+    background: rgba(19, 15, 42, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(103, 81, 185, 0.3);
+    border-radius: 1rem;
 }
 
-.work-experience-card ul li{
-    margin-left: 2.2rem;
+.card-header h6 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
 }
 
-.work-experience-card ul li::after{
-    content: " ";
-    width: 0.5rem;
-    height: 0.5rem;
-    background-color: #6751b9;
-    border-radius: 0.5rem;
+.work-duration {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(169, 147, 254, 0.1);
+    border: 1px solid rgba(169, 147, 254, 0.2);
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.experience-list {
+    list-style: none;
+}
+
+.experience-list li {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.6;
+}
+
+.experience-list li::before {
+    content: "▹";
     position: absolute;
-    left: -1.3rem;
-    top: 0.35em;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
-@media (max-width:768px){
-    .work-experience-card{
+@media (max-width: 768px) {
+    .work-experience-card {
+        padding: 1.5rem;
+        min-height: auto;
         margin: 0;
-
     }
-    .work-experience-card h6{
-        font-size: 0.95rem;
-    }
-    .work-experience-card ul li{
-        font-size: 0.75rem;
+    
+    .card-header h6 {
+        font-size: 1.1rem;
     }
 }
-

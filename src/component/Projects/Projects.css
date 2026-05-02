@@ -1,70 +1,85 @@
-.experience-container{
-    margin: 4rem 0; 
+.experience-container {
+    margin: 6rem 0;
     position: relative;
-    /* z-index: -3; */
-    padding-left:1rem;
-    padding-right:1rem;
-    
-
+    padding: 0 1rem;
 }
 
-.experience-container h5{
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 3rem;
-    
+.experience-container h5 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    background: linear-gradient(to right, #fff, var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.experience-content{
-   padding-bottom: 2rem;
+.experience-content {
+    position: relative;
+    padding: 0 1rem;
 }
 
 .arrow-left,
-.arrow-right{
-   width: 2.2rem;
-   height: 2.2rem;
-   float: left;
-   align-items: center;
-   justify-content: center;
-   /* color: #6751b9; */
-   border-radius: 0.65rem;
-   border: 1px solid #6751b9;
-   background: #130f2a;
-   position: absolute;
-   top: 55%;
-   z-index: 2;
-   cursor: pointer;
+.arrow-right {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(5px);
+    color: var(--primary-color);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.arrow-left{
-    left: -0.5rem;
+.arrow-left:hover,
+.arrow-right:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: var(--accent-glow);
 }
 
-.arrow-right{
-    right: -0.5rem;
+.arrow-left {
+    left: -1.5rem;
 }
 
-@media (max-width:1025px){
-    .arrow-left{
-        left: 0rem;
+.arrow-right {
+    right: -1.5rem;
+}
+
+/* Slick Dots Styling */
+.slick-dots li button:before {
+    color: var(--primary-color) !important;
+    font-size: 10px !important;
+    opacity: 0.3 !important;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 1 !important;
+    color: var(--primary-color) !important;
+}
+
+@media (max-width: 1024px) {
+    .arrow-left { left: 0; }
+    .arrow-right { right: 0; }
+}
+
+@media (max-width: 768px) {
+    .experience-container {
+        margin: 4rem 0;
     }
-    .arrow-right{
-        right: 0rem;
+    .experience-container h5 {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+    .arrow-left, .arrow-right {
+        display: none !important;
     }
 }
-
-@media (max-width:768px){
-    .experience-container{
-        font-size: 1.3rem;
-        margin-bottom: 2rem;
-    }
-
-    /* .arrow-left{
-        left: -1rem;
-
-    }
-    .arrow-right{
-        right: -1rem;
-    } */
-}
-

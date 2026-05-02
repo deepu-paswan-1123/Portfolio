@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import { TiThMenu } from "react-icons/ti";
 import { RxCross2 } from "react-icons/rx";
+import { FiDownload } from "react-icons/fi";
 import MobileNav from "../MobileNav/MobileNav";
 
 const Navbar = () => {
@@ -68,8 +69,11 @@ const Navbar = () => {
               </a>
             </li>
             <Link to="/Resume" style={{textDecoration:'none'}}>
-              <button className="contact-btn">Dowload CV</button>
+              <button className="contact-btn">
+                <FiDownload style={{marginRight: '8px'}} /> Download CV
+              </button>
             </Link>
+
           </ul>
           <button className="menu-btn" onClick={toggleMenu}>
             <span style={{ fontSize: "1.8rem" }}>

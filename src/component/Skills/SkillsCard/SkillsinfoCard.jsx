@@ -1,10 +1,10 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import '../SkillsCard/SkillsinfoCard.css';
 
 const SkillsinfoCard = ({heading, skills}) => {
-   
     return (
-        <div className='skills-info-card'>
+        <div className='skills-info-card glass-card'>
             <h6>{heading}</h6>
             <div className="skills-info-content">
                 {skills.map((item, index) => (
@@ -14,9 +14,14 @@ const SkillsinfoCard = ({heading, skills}) => {
                             <p className="percentage">{item.percentage}</p>
                         </div>
 
-
                         <div className="skill-progress-bg">
-                            <div className="skill-progress" style={{width:item.percentage}}></div>
+                            <motion.div 
+                                className="skill-progress" 
+                                initial={{ width: 0 }}
+                                whileInView={{ width: item.percentage }}
+                                transition={{ duration: 1, ease: "easeOut" }}
+                                viewport={{ once: true }}
+                            />
                         </div>
                     </React.Fragment>
                 ))}
@@ -26,3 +31,4 @@ const SkillsinfoCard = ({heading, skills}) => {
 }
 
 export default SkillsinfoCard;
+

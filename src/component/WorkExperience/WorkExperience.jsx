@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { WORK_EXPERIENCE } from '../Utils/data';
 import ExperienceCard from './ExperienceCard/ExperienceCard';
 import Slider from 'react-slick';
+import { motion } from 'framer-motion';
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import './WorkExperience.css'
@@ -34,19 +35,30 @@ const WorkExperience = () => {
     }
 
     return (
-        <section className='experience-container'>
+        <motion.section 
+            className='experience-container'
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+        >
             <h5>Work Experience</h5>
             <div className="experience-content">
-                <MdKeyboardArrowRight className="arrow-right" onClick={slideRight} />
-                <MdOutlineKeyboardArrowLeft className="arrow-left" onClick={slideLeft} />
+                <div className="arrow-right" onClick={slideRight}>
+                    <MdKeyboardArrowRight />
+                </div>
+                <div className="arrow-left" onClick={slideLeft}>
+                    <MdOutlineKeyboardArrowLeft />
+                </div>
                 <Slider ref={sliderRef} {...settings}>
                     {WORK_EXPERIENCE.map((item) => (
                         <ExperienceCard key={item.title} details={item} />
                     ))}
                 </Slider>
             </div>
-        </section>
+        </motion.section>
     );
 }
 
 export default WorkExperience;
+

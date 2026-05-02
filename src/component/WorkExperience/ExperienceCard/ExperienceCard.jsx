@@ -3,14 +3,17 @@ import './ExperienceCard.css'
 
 const ExperienceCard = ({details}) => {
     return (
-        <div className='work-experience-card'>
-            <h6>{details.title}</h6>
+        <div className='work-experience-card glass-card'>
+            <div className="card-header">
+                <h6>{details.title}</h6>
+                <div className="work-duration">
+                    <span>{details.Date}</span>
+                </div>
+            </div>
 
-            <div className="work-duration">{details.Date}</div>
-
-            <ul>
-                {details.responsibilites.map((item)=>(
-                    <li key={item}>{item}</li>
+            <ul className="experience-list">
+                {details.responsibilites.map((item, index)=>(
+                    <li key={index}>{item}</li>
                 ))}
             </ul>
         </div>
@@ -18,3 +21,4 @@ const ExperienceCard = ({details}) => {
 }
 
 export default ExperienceCard;
+
