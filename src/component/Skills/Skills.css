@@ -58,21 +58,18 @@
 }
 
 
-    .skills-container h5{
-        font-size: 1.3rem;
-        margin-bottom: 2rem;
-
+@media (max-width: 1024px) {
+    .skills-content {
+        grid-template-columns: 1fr;
     }
-
-    .skills-container::before,
-    .skills-container::after{
-        width: 18rem;
-        height: 18rem;
+    .skills-container h5 {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
     }
 }
 
-@media (max-width:600px){
-    .skills-container{
-        padding: 0;
+@media (max-width: 768px) {
+    .skills {
+        grid-template-columns: 1fr;
     }
-}
+}
