@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import '../SkillsCard/SkillsinfoCard.css';
+import './SkillsinfoCard.css';
 
 const SkillsinfoCard = ({heading, skills}) => {
     return (

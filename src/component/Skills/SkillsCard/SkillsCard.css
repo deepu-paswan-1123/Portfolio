@@ -75,9 +75,11 @@
     }
     .iconimage {
         width: 1.8rem;
+    }
+}
+
 @media (max-width:768px){
     .skills-card span{
         font-size: 0.9rem;
     }
-    
 }
